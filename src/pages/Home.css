@@ -1,0 +1,117 @@
+hr {
+  position: relative;
+  top: 20px;
+  border: none;
+  height: 6px;
+  background: black;
+  margin-bottom: 45px;
+  opacity: 1;
+}
+/* styles.css */
+
+/* .container {
+  height: auto;
+  width: 900px;
+  margin: 0 auto;
+  color: black;
+  background-color: white;
+  padding: 50px;
+  font-family: "Times New Roman", Times, seri;
+} */
+.name {
+  color: black;
+  margin-bottom: 78px;
+  text-transform: uppercase;
+}
+.sub {
+  font-weight: 20px;
+}
+.linkedin {
+  color: black;
+}
+.info-main {
+  display: flex;
+}
+
+.link {
+  color: black;
+}
+.info-right {
+  text-align: right;
+  margin-top: 50px;
+  margin-left: 300px;
+}
+
+.divider-main {
+  background-color: #545454;
+  height: 10px;
+}
+.sub {
+  text-align: center;
+}
+.divider-sum {
+  background-color: #545454;
+  height: 5px;
+}
+.edu {
+  padding: 20px;
+  /* }
+.title {
+  display: flex;
+  justify-content: space-between;
+
+  /* position: relative; */
+}
+*/ .date {
+  /* position: absolute;
+  right: 0;
+  top: 0; */
+}
+/* .edu {
+  display: flex;
+  flex-direction: column;
+} */
+/* .edu-left {
+  flex: 1;
+  justify-content: end;
+  margin-left: 200px;
+}
+
+.edu-right {
+  flex: 1; */
+
+/* margin-left: 10px;
+} */
+
+.post {
+  display: flex;
+  justify-content: space-between;
+}
+.github {
+  color: black;
+}
+
+.divider-min {
+  background-color: #545454;
+  height: 2px;
+  width: 250px;
+}
+.divider-max {
+  background-color: #545454;
+  height: 2px;
+  width: 400px;
+}
+
+.last-part {
+  display: flex;
+}
+.last-left {
+  margin-left: 10px;
+}
+.last-right {
+  margin-left: 250px;
+}
+.certif {
+  display: flex;
+  justify-content: space-between;
+}

@@ -10,6 +10,8 @@ import Information from "../components/Information";
 import Certificate from "../components/Certificate";
 import "./Home.css";
 import { useQuery } from "react-query";
+import Login from "../components/Login";
+import { useLocation } from "react-router-dom";
 // function calc(int1, int2) {
 //   return int1 + int2;
 // }
@@ -19,16 +21,30 @@ import { useQuery } from "react-query";
 
 function Home() {
   //information
-  const fetchinfo = async () => {
-    const response = await axios.get("https://localhost:7183/api/infos/7");
-    return response?.data;
-  };
-  const { data: infos } = useQuery("infos", fetchinfo);
-  console.log(infos);
+  // const fetchinfo = async () => {
+  //   const response = await axios.get("https://localhost:7183/api/hahah/7", {
+  //     headers: {
+  //       Authorization: "abc",
+  //     },
+  //   });
+  //   return response?.data;
+  // };
+  // const { data: hahah} = useQuery("hahah", fetchinfo);
+  // console.log(hahah);
+  var hahah = JSON.parse(localStorage.getItem("userData"));
+
+  console.log(hahah.user_id);
 
   //education
   const fetchedu = async () => {
-    const response = await axios.get("https://localhost:7183/api/educations/7");
+    const response = await axios.get(
+      `https://localhost:7183/api/educations/${hahah.user_id}`,
+      {
+        headers: {
+          Authorization: "abc",
+        },
+      }
+    );
     return response?.data;
   };
   const { data: educations } = useQuery("educations", fetchedu);
@@ -37,7 +53,12 @@ function Home() {
   //experiences
   const fetchexp = async () => {
     const response = await axios.get(
-      "https://localhost:7183/api/experiences/7"
+      `https://localhost:7183/api/experiences/${hahah.user_id}`,
+      {
+        headers: {
+          Authorization: "abc",
+        },
+      }
     );
     return response?.data;
   };
@@ -46,7 +67,14 @@ function Home() {
 
   //projects
   const fetchpro = async () => {
-    const response = await axios.get("https://localhost:7183/api/projects/7");
+    const response = await axios.get(
+      `https://localhost:7183/api/projects/${hahah.user_id}`,
+      {
+        headers: {
+          Authorization: "abc",
+        },
+      }
+    );
     return response?.data;
   };
   const { data: projects } = useQuery("projects", fetchpro);
@@ -54,7 +82,15 @@ function Home() {
 
   //skills
   const fetchskills = async () => {
-    const response = await axios.get("https://localhost:7183/api/skills/7");
+    const response = await axios.get(
+      `https://localhost:7183/api/skills/${hahah.user_id}`,
+      {
+        headers: {
+          Authorization: "abc",
+        },
+      }
+    );
+
     return response?.data;
   };
   const { data: skills } = useQuery("skills", fetchskills);
@@ -63,14 +99,19 @@ function Home() {
   //certificates
   const fetchcerti = async () => {
     const response = await axios.get(
-      "https://localhost:7183/api/certificates/7"
+      `https://localhost:7183/api/certificates/${hahah.user_id}`,
+      {
+        headers: {
+          Authorization: "abc",
+        },
+      }
     );
     return response?.data;
   };
   const { data: certificates } = useQuery("certificates", fetchcerti);
   console.log(certificates);
 
-  return infos == null ? null : (
+  return hahah == null ? null : (
     <>
       {/* <!! Introduction !!/> */}
       <Message />
@@ -78,12 +119,12 @@ function Home() {
         <div className="row">
           <div className="col-md-12">
             <Information
-              title={infos.name}
-              linkedin={infos.linkedin}
-              contact={infos.phone_no}
-              email={infos.email}
-              address={infos.address}
-              summary={infos.summary}
+              title={hahah.name}
+              linkedin={hahah.linkedin}
+              contact={hahah.phone_no}
+              email={hahah.email}
+              address={hahah.address}
+              summary={hahah.summary}
             />
           </div>
         </div>
